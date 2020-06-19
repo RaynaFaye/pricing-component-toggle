@@ -45,6 +45,7 @@ body {
   display: inline-block;
   width: 60px;
   height: 34px;
+  border: 1px solid transparent;
 }
 .checkbox-block:focus-within {
   border: 1px dotted black;
