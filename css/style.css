@@ -1,5 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
+:root {
+  --gradient-one: rgb(163, 168, 240);
+  --gradient-two: rgb(105, 111, 221);
+  --very-light-gray-blue: hsl(240, 78%, 98%);
+  --light-gray-blue: hsl(234, 14%, 74%);
+  --gray-blue: hsl(233, 13%, 49%);
+  --dark-gray-blue: hsl(232, 13%, 33%);
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  background: url(../images/bg-top.svg) right -195px top -35px no-repeat, var(--very-light-gray-blue);
+  text-align: center;
+}
+.screen-reader {
+  position: absolute;
+  left: -100vw;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.main-title {
+  color: var(--gray-blue);
+  margin-top: 75px;
+  margin-bottom: 50px;
+}
+/* Custom Slider */
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 75px;
+}
+.checkbox-label {
+  color: var(--light-gray-blue);
+  margin: 0 20px;
+}
+.checkbox-block {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.checkbox-input {
+  position: absolute;
+  left: -110vw;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, var(--gradient-one), var(--gradient-two));
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background: var(--white);
+  transition: 0.4s;
+}
+.checkbox-input:checked + .slider {
+  background: linear-gradient(to right, rgb(182, 186, 241), rgb(163, 168, 240));
+}
+.checkbox-input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
 /* Attribution section */
 .attribution {
   font-size: 11px;
@@ -7,4 +86,12 @@
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+/* Media Queries */
+@media all and (min-width: 840px) {
+  body {
+    background: url(../images/bg-bottom.svg) left bottom no-repeat, url(../images/bg-top.svg) right top no-repeat, var(--very-light-gray-blue);
+    height: 100vh;
+  }
 }
