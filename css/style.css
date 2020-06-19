@@ -46,6 +46,9 @@ body {
   width: 60px;
   height: 34px;
 }
+.checkbox-block:focus-within {
+  border: 1px dotted black;
+}
 .checkbox-input {
   position: absolute;
   left: -110vw;
@@ -78,7 +81,74 @@ body {
 .checkbox-input:checked + .slider:before {
   transform: translateX(26px);
 }
-
+/* Card Section */
+.cards {
+  padding: 0 15px;
+}
+.card {
+  background: var(--white);
+  color: var(--gray-blue);
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 30px;
+}
+.card:nth-child(even) {
+  background: linear-gradient(var(--gradient-one), var(--gradient-two));
+  color: var(--white);
+}
+.card__title {
+  margin-top: 0;
+}
+.card__price {
+  font-size: 64px;
+  color: var(--dark-gray-blue);
+  border-bottom: 1px solid var(--light-gray-blue);
+  margin: 0;
+  padding-bottom: 30px;
+}
+.card:nth-child(even) .card__price {
+  color: var(--white);
+}
+.card__list {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+.card__item {
+  border-bottom: 1px solid var(--light-gray-blue);
+  margin: 0;
+  padding: 15px 0;
+}
+.card__button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  background: linear-gradient(to right, var(--gradient-one), var(--gradient-two));
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 15px 0;
+  width: 100%;
+  cursor: pointer;
+}
+.card__button:hover,
+.card__button:focus {
+  color: var(--gradient-two);
+  background: var(--white);
+  border: 1px solid var(--gradient-two);
+}
+.card:nth-child(even) .card__button {
+  color: var(--gradient-two);
+  background: var(--white);
+}
+.card:nth-child(even) .card__button:hover,
+.card:nth-child(even) .card__button:focus {
+  color: var(--white);
+  background: var(--gradient-two);
+  border: 1px solid var(--white);
+}
 /* Attribution section */
 .attribution {
   font-size: 11px;
@@ -89,9 +159,23 @@ body {
 }
 
 /* Media Queries */
-@media all and (min-width: 840px) {
+@media all and (min-width: 740px) and (max-width: 980px) {
+  .card__price {
+    font-size: 50px;
+  }
+}
+@media all and (min-width: 740px) {
   body {
     background: url(../images/bg-bottom.svg) left bottom no-repeat, url(../images/bg-top.svg) right top no-repeat, var(--very-light-gray-blue);
     height: 100vh;
+  }
+  /* Card Section */
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card:nth-child(even) {
+    padding: 50px 30px;
   }
 }
