@@ -17,42 +17,30 @@
         <div class="checkbox-block">
           <label for="toggle">
             <span class="screen-reader">Toggle between Annually and Monthly Prices</span>
-            <input type="checkbox" id="toggle" class="checkbox-input" />
+            <input type="checkbox" id="toggle" class="checkbox-input" v-model="checkState" />
             <span class="slider"></span>
           </label>
         </div>
         <p class="checkbox-label" aria-hidden="true">Monthly</p>
       </div>
       <div class="cards">
-        <div class="card">
-          <h2 class="card__title">Basic</h2>
-          <p class="card__price">&dollar;199.99</p>
-          <ul class="card__list">
-            <li class="card__item">500 GB Storage</li>
-            <li class="card__item">2 Users Allowed</li>
-            <li class="card__item">Send up to 3 GB</li>
-          </ul>
-          <button class="card__button">Learn More</button>
-        </div>
-        <div class="card">
-          <h2 class="card__title">Professional</h2>
-          <p class="card__price">&dollar;249.99</p>
-          <ul class="card__list">
-            <li class="card__item">1 TB Storage</li>
-            <li class="card__item">5 Users Allowed</li>
-            <li class="card__item">Send up to 10 GB</li>
-          </ul>
-          <button class="card__button">Learn More</button>
-        </div>
-        <div class="card">
-          <h2 class="card__title">Master</h2>
-          <p class="card__price">&dollar;399.99</p>
-          <ul class="card__list">
-            <li class="card__item">2 TB Storage</li>
-            <li class="card__item">10 Users Allowed</li>
-            <li class="card__item">Send up to 20 GB</li>
-          </ul>
-          <button class="card__button">Learn More</button>
+        <div class="card" v-for="item in cardData">
+            <h2 class="card__title">{{item.listItems[0]}}</h2>
+            <p class="card__price">&dollar;{{ item.listItems[1] }}</p>
+            <ul class="card__list">
+              <li class="card__item">
+                {{ item.listItems[2]}} Storage
+              </li>
+              <li class="card__item">
+                {{ item.listItems[3]}} Users Allowed
+              </li>
+              <li class="card__item">
+                Send up to {{ item.listItems[4]}} GB
+              </li>
+            <div>
+            </ul>
+            <p></p>
+            <button class="card__button">Learn More</button>
         </div>
       </div>
       <footer>
